@@ -50,4 +50,22 @@ replace k8s.io/sample-cli-plugin => k8s.io/sample-cli-plugin v0.0.0-201911141104
 
 replace k8s.io/sample-controller => k8s.io/sample-controller v0.0.0-20191114104921-b2770fad52e3
 
-require k8s.io/kubernetes v1.16.3 // indirect
+replace github.com/prometheus/client_golang => github.com/prometheus/client_golang v0.9.2
+
+require (
+	github.com/JamesClonk/vultr v2.0.1+incompatible
+	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
+	github.com/alecthomas/units v0.0.0-20190717042225-c3de453c63f4 // indirect
+	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/cespare/xxhash/v2 v2.1.0 // indirect
+	github.com/go-kit/kit v0.9.0 // indirect
+	github.com/go-logfmt/logfmt v0.4.0 // indirect
+	github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4 // indirect
+	github.com/prometheus/procfs v0.0.5 // indirect
+	golang.org/x/sys v0.0.0-20191010194322-b09406accb47 // indirect
+	k8s.io/api v0.0.0
+	k8s.io/apimachinery v0.0.0
+	k8s.io/cloud-provider v0.0.0
+	k8s.io/kubernetes v1.16.3 // indirect
+	sigs.k8s.io/cluster-api v0.2.7
+)
