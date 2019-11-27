@@ -2,6 +2,8 @@ package vultr
 
 import (
 	"context"
+	"fmt"
+	"strconv"
 
 	vultr "github.com/JamesClonk/vultr/lib"
 	v1 "k8s.io/api/core/v1"
@@ -62,7 +64,11 @@ func (i *instances) InstanceID(ctx context.Context, nodeName types.NodeName) (st
 		return "", err
 	}
 
-	return server.ID, nil
+	optional := ""
+	segments := strconv.Itoa(server.RegionID)
+	providerID := fmt.Sprintf("%s/%s/%s", optional, segments, server.ID)
+
+	return providerID, nil
 }
 
 // InstanceType returns the type of the specified instance.
@@ -72,7 +78,7 @@ func (i *instances) InstanceType(ctx context.Context, name types.NodeName) (stri
 		return "", err
 	}
 
-	return string(server.PlanID), nil
+	return strconv.Itoa(server.PlanID), nil
 }
 
 // InstanceTypeByProviderID returns the type of the specified instance.
@@ -87,7 +93,7 @@ func (i *instances) InstanceTypeByProviderID(ctx context.Context, providerID str
 		return "", err
 	}
 
-	return string(server.PlanID), nil
+	return strconv.Itoa(server.PlanID), nil
 }
 
 // AddSSHKeyToAllInstances adds an SSH public key as a legal identity for all instances
