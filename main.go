@@ -7,13 +7,13 @@ import (
 	"os"
 	"time"
 
-	_ "github.com/yukirii/vultr-cloud-provider/vultr"
+	_ "github.com/yukirii/cloud-provider-vultr/vultr"
 	"k8s.io/apiserver/pkg/server/healthz"
 	"k8s.io/component-base/logs"
 	"k8s.io/klog"
 	"k8s.io/kubernetes/cmd/cloud-controller-manager/app"
-	//_ "k8s.io/kubernetes/pkg/client/metrics/prometheus" // for client metric registration
-	//_ "k8s.io/kubernetes/pkg/version/prometheus"        // for version metric registration
+	_ "k8s.io/kubernetes/pkg/client/metrics/prometheus" // for client metric registration
+	_ "k8s.io/kubernetes/pkg/version/prometheus"        // for version metric registration
 )
 
 func init() {

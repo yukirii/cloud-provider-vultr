@@ -19,7 +19,7 @@ const (
 type cloud struct {
 	vultrClient *vultr.Client
 
-	instances *cloudprovider.Instances
+	instances cloudprovider.Instances
 }
 
 func newCloud(configReader io.Reader) (cloudprovider.Interface, error) {
@@ -52,8 +52,7 @@ func (c *cloud) LoadBalancer() (cloudprovider.LoadBalancer, bool) {
 
 // Instances returns an instances interface. Also returns true if the interface is supported, false otherwise.
 func (c *cloud) Instances() (cloudprovider.Instances, bool) {
-	// not supported
-	return nil, false
+	return c.instances, true
 }
 
 // Zones returns a zones interface. Also returns true if the interface is supported, false otherwise.
